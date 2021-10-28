@@ -31,4 +31,3 @@ def write_moves(move_string):
     while len(move_string)!=0:
 #        print(move_string[0])
         arduino.write(bytes(move_string.pop(), 'utf-8'))
-    sleep()
