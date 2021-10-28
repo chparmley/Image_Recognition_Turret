@@ -8,7 +8,7 @@ def send_position(position,screen_width,screen_height):
    buffer = 5
    # for the distance from center of target to center of camera on x axis
    distance_x = abs(int(position[0] - screen_width/2))
-   for move in range(distance_x):
+   for move in range(int(distance_x)/5):
       if distance_x > 96:
          step_setting = '1'
       elif distance_x > 64:
@@ -34,7 +34,7 @@ def send_position(position,screen_width,screen_height):
 
    distance_y = abs(int(position[1] - screen_height/2))
    # for the distance from center of target to center of camera on y axis
-   for move in range(distance_y):
+   for move in range(int(distance_y)/5):
       if distance_y > 32:
          step_setting = '1'
       elif distance_y > 16:
