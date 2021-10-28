@@ -4,27 +4,28 @@ arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=19200, timeout=1)
 
 def send_position(position,screen_width,screen_height):
    move_string = []
-   axis = position.copy()
+   error_margin = 20
    # for the distance from center of target to center of camera on x axis
-   for move in range(abs(int(axis[0] - screen_width/2))):
-      if move > 64:
+   distance = abs(int(position[0] - screen_width/2))
+   while distance > error_margin:
+      if distance > 64:
          step_setting = '4'
-      elif move > 32:
+      elif distance > 32:
          step_setting = '4'
-      elif move > 16:
+      elif distance > 16:
          step_setting = '4'
-      elif move > 8:
+      elif distance > 8:
          step_setting = '4'
-      elif move > 4:
+      elif distance > 4:
          step_setting = '4'
-      elif move > 2:
+      elif distance > 2:
          step_setting = '8'
       move_string.append(step_setting)
-      axis[0] -= int(step_setting)
+      position[0] -= int(step_setting)
       print(move_string)
    
       # Check if the target is within the margin of error
-      if abs(axis[0] - screen_width/2) > 1:
+      if abs(position[0] - screen_width/2) > 1:
          # If target right of center
          if position[0] - screen_width/2 > 0:
             move_string.append('r')
@@ -32,20 +33,20 @@ def send_position(position,screen_width,screen_height):
          if position[0] - screen_width/2 < 0:
             move_string.append('l')
 
-
+   distance = abs(int(position[0] - screen_width/2))
    # for the distance from center of target to center of camera on y axis
-   for move in range(abs(int(position[1] - screen_height/2))):
-      if move > 64:
+   while distance > error_margin:
+      if distance > 64:
          step_setting = '4'
-      elif move > 32:
+      elif distance > 32:
          step_setting = '4'
-      elif move > 16:
+      elif distance > 16:
          step_setting = '4'
-      elif move > 8:
+      elif distance > 8:
          step_setting = '4'
-      elif move > 4:
+      elif distance > 4:
          step_setting = '4'
-      elif move > 2:
+      elif distance > 2:
          step_setting = '8'
       move_string.append(step_setting)
       position[1] -= int(step_setting)
