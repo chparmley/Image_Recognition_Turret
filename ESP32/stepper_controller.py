@@ -7,13 +7,13 @@ def send_position(position,screen_width,screen_height):
    # for the distance from center of target to center of camera on x axis
    for move in range(abs(int(position[0] - screen_width/2))):
       if move > 16:
-         step_setting = 8
-      elif move > 8:
-         step_setting = 4
-      elif move > 4:
-         step_setting = 2
-      elif move > 2:
          step_setting = 1
+      elif move > 8:
+         step_setting = 2
+      elif move > 4:
+         step_setting = 4
+      elif move > 2:
+         step_setting = 8
       move_string.append(step_setting)
    
       # Check if the target is within the margin of error

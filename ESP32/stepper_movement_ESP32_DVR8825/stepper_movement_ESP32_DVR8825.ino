@@ -141,20 +141,8 @@ void loop()
     char ch = Serial.read(); // read in a character from the serial port and assign to ch
     switch(ch) { // switch based on the value of ch
       
-      case '1':
-          step_resolution = 32;
-          v = 0;
-          break;
-      case '2':
-          step_resolution = 16;
-          v = 0;
-          break;
-      case '4':
-          step_resolution = 8;
-          v = 0;
-          break;
-      case '8':
-          step_resolution = 4;
+      case '0'...'9': // if it's numeric
+         step_resolution = int(ch);
           v = 0;
           break;
           
