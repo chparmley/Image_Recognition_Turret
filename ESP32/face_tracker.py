@@ -18,7 +18,7 @@ while True:
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     # Detect the faces
-    faces = face_cascade.detectMultiScale(gray, 1.8, 6)
+    faces = face_cascade.detectMultiScale(gray, 1.4, 6)
     # Get x,y positions for the arduino
     screen_x,screen_y = img.shape[1],img.shape[0]
     # Center screen circle
@@ -30,6 +30,7 @@ while True:
         cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0), 2)
 
     try:
+        # If we skipped the right amount of frames
         if counter >= skip_interval:
         # Send the object position to function to move the arduino
             send_position(position, screen_x, screen_y)
