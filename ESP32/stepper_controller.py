@@ -20,6 +20,7 @@ def send_position(position,screen_width,screen_height):
          step_setting = '8'
       move_string.append(step_setting)
       position[0] -= int(step_setting)
+      print(move_string)
    
       # Check if the target is within the margin of error
       if abs(position[0] - screen_width/2) > 1:
@@ -30,7 +31,6 @@ def send_position(position,screen_width,screen_height):
          if position[0] - screen_width/2 < 0:
             move_string.append('l')
 
-   print(move_string)
 
    # for the distance from center of target to center of camera on y axis
    for move in range(abs(int(position[1] - screen_height/2))):
@@ -57,7 +57,8 @@ def send_position(position,screen_width,screen_height):
          # If target above center
          if position[1] - screen_height/2 < 0:
             move_string.append('u')
-   print(move_string)
+
+
    if abs(position[0] - screen_width/2) < 35 and abs(position[1] - screen_height/2) < 35:
       print('Locked..', position)
    write_moves(move_string)
