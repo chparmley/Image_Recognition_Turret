@@ -4,7 +4,7 @@ arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=19200, timeout=1)
 
 def send_position(position,screen_width,screen_height):
    move_string = []
-   error_margin = 5
+   error_margin = 1
    buffer = 5
    # There are 200 steps in a revolution of the stepper motor
    # This variable scales each pixel to a step
