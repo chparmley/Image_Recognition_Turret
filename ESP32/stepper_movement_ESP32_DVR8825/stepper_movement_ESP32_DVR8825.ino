@@ -15,7 +15,7 @@ const int motor1_m1 = 18;
 const int motor1_m2 = 5;
 
 
-int step_speed = 600; // 60 for microstep, 
+int step_speed = 1600; // 60 for microstep, 
 int step_resolution = 32;
 
 
@@ -143,7 +143,7 @@ void loop()
       
       case '0'...'9': // if it's numeric
           v = v * 10 + ch - '0';
-          step_resolution = int(v);
+          step_resolution = int(v)*4;
           change_resolution();
           v = 0;
           break;
