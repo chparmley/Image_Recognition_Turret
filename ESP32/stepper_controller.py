@@ -4,25 +4,26 @@ arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=19200, timeout=1)
 
 def send_position(position,screen_width,screen_height):
    move_string = []
-   error_margin = 1
+   error_margin = 5
    buffer = 5
    # There are 200 steps in a revolution of the stepper motor
-   # This variable scales each pixel to a step
+   # This variable attempts to each pixel to a step
    pixel_per_step_scaler = .2
+
    # for the distance from center of target to center of camera on x axis
    distance_x = abs(int(position[0] - screen_width/2))*pixel_per_step_scaler
    while distance_x > error_margin:
-      if distance_x > 96 *pixel_per_step_scaler:
+      if distance_x > 96:
          step_setting = '1'
-      elif distance_x > 64 *pixel_per_step_scaler:
+      elif distance_x > 64:
          step_setting = '2'
-      elif distance_x > 32 *pixel_per_step_scaler:
+      elif distance_x > 32:
          step_setting = '4'
-      if distance_x > 24 *pixel_per_step_scaler:
+      elif distance_x > 24:
          step_setting = '8'
-      elif distance_x > 8 *pixel_per_step_scaler:
+      elif distance_x > 8:
          step_setting = '16'
-      elif distance_x > 1:
+      else:
          step_setting = '32'
       move_string.append(step_setting)
 
@@ -38,17 +39,17 @@ def send_position(position,screen_width,screen_height):
    distance_y = abs(int(position[1] - screen_height/2))*pixel_per_step_scaler
    # for the distance from center of target to center of camera on y axis
    while distance_y > error_margin:
-      if distance_y > 32 *pixel_per_step_scaler:
+      if distance_y > 32:
          step_setting = '1'
-      elif distance_y > 16 *pixel_per_step_scaler:
+      elif distance_y > 16:
          step_setting = '2'
-      elif distance_y > 8 *pixel_per_step_scaler:
+      elif distance_y > 8:
          step_setting = '4'
-      if distance_y > 4 *pixel_per_step_scaler:
+      elif distance_y > 4:
          step_setting = '8'
-      elif distance_y > 2 *pixel_per_step_scaler:
+      elif distance_y > 2:
          step_setting = '16'
-      elif distance_y > 1:
+      else:
          step_setting = '32'
       move_string.append(step_setting)
 
