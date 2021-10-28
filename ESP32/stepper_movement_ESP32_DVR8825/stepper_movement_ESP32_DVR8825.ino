@@ -16,7 +16,7 @@ const int motor1_m2 = 5;
 
 
 int step_speed = 60; // 60 for microstep, 
-int step_resolution = 32;
+int step_resolution = 16;
 
 
 void setup()
@@ -140,7 +140,26 @@ void loop()
     change_resolution();
     char ch = Serial.read(); // read in a character from the serial port and assign to ch
     switch(ch) { // switch based on the value of ch
-
+      
+      case 1:
+          step_resolution = 1;
+          break;
+      case 2:
+          step_resolution = 2;
+          break;
+      case 4:
+          step_resolution = 4;
+          break;
+      case 8:
+          step_resolution = 8;
+          break;
+      case 16:
+          step_resolution = 16;
+          break;
+      case 32:
+          step_resolution = 32;
+          break;
+          
       case 'r': // if it's r
           digitalWrite(dir_pin, LOW);
           // Spin motor
