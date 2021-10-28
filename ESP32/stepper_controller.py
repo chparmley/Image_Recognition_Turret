@@ -21,11 +21,10 @@ def send_position(position,screen_width,screen_height):
       elif distance > 2:
          step_setting = '8'
       move_string.append(step_setting)
-      position[0] -= int(step_setting)
-      print(move_string)
+      distance -= 32/int(step_setting)*4
    
       # Check if the target is within the margin of error
-      if abs(position[0] - screen_width/2) > 1:
+      if distance > 1:
          # If target right of center
          if position[0] - screen_width/2 > 0:
             move_string.append('r')
@@ -49,10 +48,10 @@ def send_position(position,screen_width,screen_height):
       elif distance > 2:
          step_setting = '8'
       move_string.append(step_setting)
-      position[1] -= int(step_setting)
+      distance -= 32/int(step_setting)
 
       # If not withing our margin of error
-      if abs(position[1] - screen_height/2) > 1:
+      if distance > 1:
          # If target below center
          if position[1] - screen_height/2 > 0:
             move_string.append('d')
