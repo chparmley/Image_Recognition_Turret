@@ -15,7 +15,7 @@ const int motor1_m1 = 18;
 const int motor1_m2 = 5;
 
 
-int step_speed = 1600; // 60 for microstep, 
+int step_speed = 600; // 60 for microstep, 
 int step_resolution = 32;
 
 
