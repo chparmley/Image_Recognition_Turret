@@ -1,6 +1,5 @@
 # Importing Libraries
 import serial
-from time import sleep
 arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=19200, timeout=1)
 
 def send_position(position,screen_width,screen_height):
