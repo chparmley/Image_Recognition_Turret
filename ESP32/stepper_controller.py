@@ -58,6 +58,7 @@ def send_position(position,screen_width,screen_height):
 
    if abs(position[0] - screen_width/2) < 35 and abs(position[1] - screen_height/2) < 35:
       print('Locked..', position)
+   print(move_string)
    write_moves(move_string)
 
 def write_moves(move_string):
