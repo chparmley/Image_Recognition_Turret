@@ -1,5 +1,5 @@
 import cv2
-from  stepper_controller_smooth import send_position
+from  stepper_controller import send_position
 
 # Load the cascade
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
