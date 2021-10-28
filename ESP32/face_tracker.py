@@ -18,7 +18,7 @@ while True:
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     # Detect the faces
-    faces = face_cascade.detectMultiScale(gray, 1.1, 6)
+    faces = face_cascade.detectMultiScale(gray, 1.2, 6)
     # Get x,y positions for the arduino
     screen_x,screen_y = img.shape[1],img.shape[0]
     # Center screen circle
