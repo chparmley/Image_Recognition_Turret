@@ -21,7 +21,7 @@ def send_position(position,screen_width,screen_height):
       elif distance_x > 2:
          step_setting = '32'
       move_string.append(step_setting)
-      distance_x -= 32/int(step_setting)*4
+      distance_x -= 32/int(step_setting)
    
       # Check if the target is within the margin of error
       if distance_x > 1:
