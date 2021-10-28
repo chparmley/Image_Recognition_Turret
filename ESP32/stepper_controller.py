@@ -17,7 +17,7 @@ def send_position(position,screen_width,screen_height):
          step_setting = '4'
       elif distance_x > 4*buffer:
          step_setting = '8'
-      elif distance_x > 2*buffer:
+      elif distance_x > 10:
          step_setting = '16'
       elif distance_x > 1:
          step_setting = '32'
@@ -44,7 +44,7 @@ def send_position(position,screen_width,screen_height):
          step_setting = '4'
       elif distance_y > 4*buffer:
          step_setting = '8'
-      elif distance_y > 2*buffer:
+      elif distance_y > 10:
          step_setting = '16'
       elif distance_y > 1:
          step_setting = '32'
