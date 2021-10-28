@@ -142,7 +142,7 @@ void loop()
     switch(ch) { // switch based on the value of ch
       
       case '0'...'9': // if it's numeric
-         step_resolution = int(ch);
+         step_resolution = int(ch)*4;
           v = 0;
           break;
           
