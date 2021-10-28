@@ -12,7 +12,7 @@ def send_position(position,screen_width,screen_height):
 
    # for the distance from center of target to center of camera on x axis
    distance_x = abs(int(position[0] - screen_width/2))*pixel_per_step_scaler
-   while distance_x > error_margin:
+   while distance_x > error_margin *pixel_per_step_scaler:
       if distance_x > 96 *pixel_per_step_scaler:
          step_setting = '1'
       elif distance_x > 64 *pixel_per_step_scaler:
@@ -38,7 +38,7 @@ def send_position(position,screen_width,screen_height):
 
    distance_y = abs(int(position[1] - screen_height/2))*pixel_per_step_scaler
    # for the distance from center of target to center of camera on y axis
-   while distance_y > error_margin:
+   while distance_y > error_margin *pixel_per_step_scaler:
       if distance_y > 32 *pixel_per_step_scaler:
          step_setting = '1'
       elif distance_y > 16 *pixel_per_step_scaler:
