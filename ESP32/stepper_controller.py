@@ -14,7 +14,7 @@ def send_position(position,screen_width,screen_height):
          step_setting = 4
       elif move > 2:
          step_setting = 8
-      move_string.append(step_setting)
+      move_string.append(str(step_setting))
    
       # Check if the target is within the margin of error
       if abs(position[0] - screen_width/2) > 1:
