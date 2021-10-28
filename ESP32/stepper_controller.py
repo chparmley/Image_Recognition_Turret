@@ -6,25 +6,25 @@ def send_position(position,screen_width,screen_height):
    move_string = []
    error_margin = 20
    # for the distance from center of target to center of camera on x axis
-   distance = abs(int(position[0] - screen_width/2))
-   while distance > error_margin:
-      if distance > 64:
+   distance_x = abs(int(position[0] - screen_width/2))
+   while distance_x > error_margin:
+      if distance_x > 64:
          step_setting = '1'
-      elif distance > 32:
+      elif distance_x > 32:
          step_setting = '2'
-      elif distance > 16:
+      elif distance_x > 16:
          step_setting = '4'
-      elif distance > 8:
+      elif distance_x > 8:
          step_setting = '8'
-      elif distance > 4:
+      elif distance_x > 4:
          step_setting = '16'
-      elif distance > 2:
+      elif distance_x > 2:
          step_setting = '32'
       move_string.append(step_setting)
-      distance -= 32/int(step_setting)*4
+      distance_x -= 32/int(step_setting)*4
    
       # Check if the target is within the margin of error
-      if distance > 1:
+      if distance_x > 1:
          # If target right of center
          if position[0] - screen_width/2 > 0:
             move_string.append('r')
@@ -32,26 +32,26 @@ def send_position(position,screen_width,screen_height):
          if position[0] - screen_width/2 < 0:
             move_string.append('l')
 
-   distance = abs(int(position[0] - screen_width/2))
+   distance_y = abs(int(position[0] - screen_width/2))
    # for the distance from center of target to center of camera on y axis
-   while distance > error_margin:
-      if distance > 64:
+   while distance_y > error_margin:
+      if distance_y > 64:
          step_setting = '1'
-      elif distance > 32:
+      elif distance_y > 32:
          step_setting = '2'
-      elif distance > 16:
+      elif distance_y > 16:
          step_setting = '4'
-      elif distance > 8:
+      elif distance_y > 8:
          step_setting = '8'
-      elif distance > 4:
+      elif distance_y > 4:
          step_setting = '16'
-      elif distance > 2:
+      elif distance_y > 2:
          step_setting = '32'
       move_string.append(step_setting)
-      distance -= 32/int(step_setting)
+      distance_y -= 32/int(step_setting)
 
       # If not withing our margin of error
-      if distance > 1:
+      if distance_y > 1:
          # If target below center
          if position[1] - screen_height/2 > 0:
             move_string.append('d')
