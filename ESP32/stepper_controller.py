@@ -19,7 +19,6 @@ def send_position(position,screen_width,screen_height):
       elif move > 2:
          step_setting = '32'
       move_string.append(step_setting)
-      position[0] -= int(step_setting)
    
       # Check if the target is within the margin of error
       if abs(position[0] - screen_width/2) > 1:
@@ -45,7 +44,6 @@ def send_position(position,screen_width,screen_height):
       elif move > 2:
          step_setting = '32'
       move_string.append(step_setting)
-      position[1] -= int(step_setting)
 
       # If not withing our margin of error
       if abs(position[1] - screen_height/2) > 1:
