@@ -11,11 +11,11 @@ def send_position(position,screen_width,screen_height):
    while distance_x > error_margin:
       if distance_x > 144:
          step_setting = '1'
-      elif distance_x > 64:
+      elif distance_x > 96:
          step_setting = '2'
-      elif distance_x > 32:
+      elif distance_x > 48:
          step_setting = '4'
-      elif distance_x > 12:
+      elif distance_x > 24:
          step_setting = '8'
       elif distance_x > 6:
          step_setting = '16'
@@ -38,11 +38,11 @@ def send_position(position,screen_width,screen_height):
    while distance_y > error_margin:
       if distance_y > 144:
          step_setting = '1'
-      elif distance_y > 64:
+      elif distance_y > 96:
          step_setting = '2'
-      elif distance_y > 32:
+      elif distance_y > 48:
          step_setting = '4'
-      elif distance_y > 12:
+      elif distance_y > 24:
          step_setting = '8'
       elif distance_y > 6:
          step_setting = '16'
