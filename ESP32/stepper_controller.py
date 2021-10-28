@@ -32,7 +32,7 @@ def send_position(position,screen_width,screen_height):
          if position[0] - screen_width/2 < 0:
             move_string.append('l')
 
-   distance_y = abs(int(position[0] - screen_width/2))
+   distance_y = abs(int(position[1] - screen_height/2))
    # for the distance from center of target to center of camera on y axis
    while distance_y > error_margin:
       if distance_y > 64:
