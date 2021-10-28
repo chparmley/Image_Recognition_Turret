@@ -9,17 +9,17 @@ def send_position(position,screen_width,screen_height):
    distance = abs(int(position[0] - screen_width/2))
    while distance > error_margin:
       if distance > 64:
-         step_setting = '4'
+         step_setting = '1'
       elif distance > 32:
-         step_setting = '4'
+         step_setting = '2'
       elif distance > 16:
          step_setting = '4'
       elif distance > 8:
-         step_setting = '4'
-      elif distance > 4:
-         step_setting = '4'
-      elif distance > 2:
          step_setting = '8'
+      elif distance > 4:
+         step_setting = '16'
+      elif distance > 2:
+         step_setting = '32'
       move_string.append(step_setting)
       distance -= 32/int(step_setting)*4
    
@@ -36,17 +36,17 @@ def send_position(position,screen_width,screen_height):
    # for the distance from center of target to center of camera on y axis
    while distance > error_margin:
       if distance > 64:
-         step_setting = '4'
+         step_setting = '1'
       elif distance > 32:
-         step_setting = '4'
+         step_setting = '2'
       elif distance > 16:
          step_setting = '4'
       elif distance > 8:
-         step_setting = '4'
-      elif distance > 4:
-         step_setting = '4'
-      elif distance > 2:
          step_setting = '8'
+      elif distance > 4:
+         step_setting = '16'
+      elif distance > 2:
+         step_setting = '32'
       move_string.append(step_setting)
       distance -= 32/int(step_setting)
 
