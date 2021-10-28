@@ -8,7 +8,7 @@ def send_position(position,screen_width,screen_height):
    buffer = 5
    # There are 200 steps in a revolution of the stepper motor
    # This variable attempts to each pixel to a step
-   pixel_per_step_scaler = .3
+   pixel_per_step_scaler = .25
 
    # for the distance from center of target to center of camera on x axis
    distance_x = abs(int(position[0] - screen_width/2))*pixel_per_step_scaler
