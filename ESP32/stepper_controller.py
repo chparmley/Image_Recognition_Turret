@@ -4,8 +4,9 @@ arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=19200, timeout=1)
 
 def send_position(position,screen_width,screen_height):
   move_string = []
-  for move in range(abs(int((position[0] - screen_width/2)))):
-    # Checks if the target is within the margin of error
+  # for the distance from center of target to center of camera on x axis
+  for move in range(abs(int((position[0] - screen_width/2)))*2):
+    # Check if the target is within the margin of error
     if abs(position[0] - screen_width/2) > 1:
        # If target right of center
        if position[0] - screen_width/2 > 0:
@@ -13,7 +14,8 @@ def send_position(position,screen_width,screen_height):
        # If target left of center
        if position[0] - screen_width/2 < 0:
           move_string.append('l')
-  for move in range(abs(int((position[1] - screen_height/2)))):
+  # for the distance from center of target to center of camera on y axis
+  for move in range(abs(int((position[1] - screen_height/2)))*2):
     # If not withing our margin of error
     if abs(position[1] - screen_height/2) > 1:
        # If target below center
