@@ -6,7 +6,7 @@ face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 # To capture video from webcam. 
 cap = cv2.VideoCapture(0)
 # skip_intervill will send commands to esp32 every n-th frame
-skip_interval = 6
+skip_interval = 8
 counter = 0
 while True:
     # Read the frame
