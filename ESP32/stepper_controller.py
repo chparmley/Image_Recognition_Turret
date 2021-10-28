@@ -5,10 +5,11 @@ arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=19200, timeout=1)
 def send_position(position,screen_width,screen_height):
    move_string = []
    error_margin = 20
+   buffer = 5
    # for the distance from center of target to center of camera on x axis
    distance_x = abs(int(position[0] - screen_width/2))
    while distance_x > error_margin:
-      if distance_x > 72:
+      if distance_x > 144:
          step_setting = '1'
       elif distance_x > 64:
          step_setting = '2'
@@ -35,7 +36,7 @@ def send_position(position,screen_width,screen_height):
    distance_y = abs(int(position[1] - screen_height/2))
    # for the distance from center of target to center of camera on y axis
    while distance_y > error_margin:
-      if distance_y > 72:
+      if distance_y > 144:
          step_setting = '1'
       elif distance_y > 64:
          step_setting = '2'
