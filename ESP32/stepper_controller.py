@@ -21,6 +21,7 @@ def send_position(position,screen_width,screen_height):
          step_setting = '16'
       elif distance_x > 1:
          step_setting = '32'
+      move_string.append(step_setting)
 
       # If target right of center
       if position[0] - screen_width/2 > 0:
