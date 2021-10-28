@@ -3,9 +3,11 @@ from  stepper_controller import send_position
 
 # Load the cascade
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-
 # To capture video from webcam. 
 cap = cv2.VideoCapture(0)
+# skip_intervill will send commands to esp32 every n-th frame
+skip_interval = 5
+counter = 0
 while True:
     # Read the frame
     _, img = cap.read()
@@ -28,8 +30,12 @@ while True:
         cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0), 2)
 
     try:
+        if counter >= skip_interval:
         # Send the object position to function to move the arduino
-        send_position(position, screen_x, screen_y)
+            send_position(position, screen_x, screen_y)
+            counter = 0
+        else:
+            counter += 1
     except:
         pass
 
