@@ -144,6 +144,7 @@ void loop()
       case '0'...'9': // if it's numeric
           v = v * 10 + ch - '0';
           step_resolution = int(v);
+          change_resolution();
           v = 0;
           break;
           
